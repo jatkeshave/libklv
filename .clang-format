@@ -1,7 +1,9 @@
 ---
-BasedOnStyle: Google
+BasedOnStyle: LLVM
 IndentWidth: 2
 ---
 Language: Cpp
 Standard: c++20
 ColumnLimit: 120
+FixNamespaceComments: true
+IndentPPDirectives: BeforeHash

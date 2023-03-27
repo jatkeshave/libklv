@@ -5,7 +5,8 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/CMake")
 include(libklvFunctions)
 
 option_string(LIBKLV_VERSION "libklv version" "0.0.1")
-option(LIBKVL_ENABLE_EXAMPLES "Enable example for libklv" ON)
+option(LIBKLV_ENABLE_EXAMPLES "Enable example for libklv" ON)
+option(LIBKLV_BUILD_SHARED "Build shared library" ON)
 
 project(
   "libklv monorepo"
@@ -16,7 +17,7 @@ project(
 )
 
 if(MSVC)
-  add_compile_definitions($<$<CONFIG:Debug>:/Wall /WX>)
+#  add_compile_options($<$<CONFIG:Debug>:/WX /Wall>)
 elseif()
   message(FATAL_ERROR "Only MSVC compiler is supported at the moment.")
 endif()
@@ -24,7 +25,7 @@ endif()
 
 add_subdirectory(libklv)
 
-if (LIBKVL_ENABLE_EXAMPLES)
+if (LIBKLV_ENABLE_EXAMPLES)
   add_subdirectory(examples)
 endif()
 
